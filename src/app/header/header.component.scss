@@ -1,0 +1,84 @@
+@import "src/app/shared/scss/variables";
+@import "~@mdi/font/scss/materialdesignicons";
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $padding * 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-background;
+  padding: 0 $padding * 2;
+  &__item, ul {
+    display: flex;
+  }
+  &__item {
+    justify-content: center;
+    align-items: center;
+  }
+  &__burger {
+    display: none;
+    color: $color-text;
+  }
+  &__menu {
+    ul {
+      li {
+        &:first-child,
+        &:last-child {
+          padding: 0;
+        }
+      }
+    }
+  }
+  .mdi {
+    font-size: $mdi-font-size-base;
+  }
+  li {
+    padding: 0 $padding / 2;
+  }
+  a {
+    color: $color-text;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+    &:hover {
+      color: $color-text-hover;
+      transition: 0.2s;
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .header {
+    &__burger {
+      display: block;
+    }
+    &__menu {
+      position: fixed;
+      top: $padding * 3;
+      left: -300px;
+      width: 300px;
+      max-width: 300px;
+      height: auto;
+      background-color: $color-background;
+      transition: 0.3s;
+      &.active {
+        left: 0;
+        transition: 0.3s;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        li {
+          &:first-child,
+          &:last-child {
+            padding: ($padding / 2) $padding ($padding / 2) ($padding * 2);
+          }
+          padding: ($padding / 2) $padding ($padding / 2) ($padding * 2);
+        }
+      }
+    }
+  }
+}

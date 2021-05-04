@@ -1,1 +1,47 @@
-<p>header works!</p>
+<header class="header">
+  <div class="header__item">
+    <div class="header__burger mdi"
+         [ngClass]="isActiveMenu ? 'mdi-menu-open' : 'mdi-menu'"
+         (click)="toggleMenu()"
+    ></div>
+    <nav class="header__menu" [ngClass]="{'active' : isActiveMenu}">
+      <ul>
+        <li routerLinkActive="active">
+          <a routerLink="/">Home</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/">Products</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/faq">FAQ</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/terms">Terms and Conditions</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/about">About Us</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/admin">Admin</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header__item">
+    <div class="header__auth">
+      <nav>
+        <a routerLink="/login">Login/</a>
+        <a routerLink="/registration">Registration</a>
+      </nav>
+    </div>
+    <div class="header__social">
+        <a href="#" target="_blank"><span class="mdi mdi-facebook"></span></a>
+        <a href="#" target="_blank"><span class="mdi mdi-instagram"></span></a>
+    </div>
+  </div>
+
+
+
+
+</header>
+

@@ -1,0 +1,51 @@
+<form
+  class="login"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
+  <h1>Login</h1>
+  <div class="login-content">
+    <div class="input-field" [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}">
+      <input
+        formControlName="email"
+        id="email"
+        type="email"
+        required
+      >
+      <label for="email">Email</label>
+      <span
+        class="input-error"
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+      >
+        <span *ngIf="form.get('email').errors['required']">Email need to be not an empty</span>
+        <span *ngIf="form.get('email').errors['email']">Enter a valid email address</span>
+      </span>
+
+    </div>
+    <div class="input-field" [ngClass]="{'invalid': form.get('password').invalid && form.get('password').touched}">
+      <input
+        formControlName="password"
+        id="password"
+        type="password"
+        required
+      >
+      <label for="password">Password</label>
+      <span
+        class="input-error"
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+        <span *ngIf="form.get('password').errors['required']">Password need to be not an empty</span>
+        <span *ngIf="
+        form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']"
+        >The password must be more than {{ form.get('password').errors['minlength']['requiredLength'] }} symbols</span>
+      </span>
+    </div>
+    <div class="button-container">
+      <button
+        type="submit"
+        class="button"
+        [disabled]="form.invalid || form.disabled"
+      >Sign In</button>
+    </div>
+  </div>
+</form>
